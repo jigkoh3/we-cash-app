@@ -4,7 +4,7 @@ angular.module('your_app_name.app.controllers', [])
 .controller('AppCtrl', function($scope, AuthService) {
 
   //this will represent our logged user
-  var user = getLoggedUser();
+  var user = AuthService.getLoggedUser();
 
   //save our logged user on the localStorage
   AuthService.saveUser(user);

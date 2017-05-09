@@ -76,7 +76,7 @@ angular.module('your_app_name', [
       commonConfig.redirectUri = 'http://localhost:8100/';
     }
     $authProvider.facebook(angular.extend({}, commonConfig, {
-      clientId: 'your client id from facebook console',
+      clientId: '274815989655164',
       url: 'http://localhost:3000/api/auth/facebook'
     }));
 
