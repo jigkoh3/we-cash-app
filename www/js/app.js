@@ -17,10 +17,10 @@ angular.module('your_app_name', [
 ])
 
 .constant('$config', {
-    apiUrl: 'http://localhost:3000/' ,
-    redirectUri: 'http://localhost:8100/',
+    apiUrl: 'http://localhost:3000/' ,     // your restful API example http://localhost:3000/
+    redirectUri: 'http://localhost:8100/', // oauth callback url of ionic app example http://localhost:8100/
     facebook: {
-      clientId: '274815989655164'
+      clientId: '274815989655164'          // your client id from facebook console
     }
   })
   // Enable native scrolls for Android platform only,
