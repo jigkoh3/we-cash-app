@@ -33,6 +33,7 @@ angular.module('your_app_name.app.services', [])
     this.logOut = function () {
       $auth.logout({url: 'http://localhost:3000/api/auth/signout'})
       .then(function(){
+        window.localStorage.your_app_name_user = JSON.stringify(null);
         $rootScope.$emit('userLoggedOut');
       });
       

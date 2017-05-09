@@ -212,7 +212,7 @@ angular.module('your_app_name.app.controllers', [])
   //$scope.paymentDetails;
 })
 
-.controller('SettingsCtrl', function($scope, $ionicModal) {
+.controller('SettingsCtrl', function($rootScope, $scope, $state, $ionicModal, AuthService) {
 
   $ionicModal.fromTemplateUrl('views/app/legal/terms-of-service.html', {
     scope: $scope,
@@ -234,6 +234,15 @@ angular.module('your_app_name.app.controllers', [])
 
   $scope.showPrivacyPolicy = function() {
     $scope.privacy_policy_modal.show();
+  };
+
+  $rootScope.$on('userLoggedOut', function(e){
+    
+    $state.go('auth.welcome');
+  });
+
+  $scope.logOut = function(){
+    AuthService.logOut();
   };
 
 })

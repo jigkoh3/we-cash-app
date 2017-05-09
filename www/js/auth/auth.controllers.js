@@ -5,7 +5,7 @@ angular.module('your_app_name.auth.controllers', [])
 })
 
 .controller('WelcomeCtrl', function($rootScope, $scope, $ionicModal, show_hidden_actions, $state, AuthService){
-
+	AuthService.saveUser(null);
 	$scope.show_hidden_actions = show_hidden_actions;
 
 	$scope.toggleHiddenActions = function(){

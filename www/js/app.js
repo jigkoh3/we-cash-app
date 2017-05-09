@@ -16,7 +16,13 @@ angular.module('your_app_name', [
   'ngIOS9UIWebViewPatch'
 ])
 
-
+.constant('$config', {
+    apiUrl: 'http://localhost:3000/' ,
+    redirectUri: 'http://localhost:8100/',
+    facebook: {
+      clientId: '274815989655164'
+    }
+  })
   // Enable native scrolls for Android platform only,
   // as you see, we're disabling jsScrolling to achieve this.
   .config(function ($ionicConfigProvider) {
@@ -62,7 +68,7 @@ angular.module('your_app_name', [
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider, $authProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $config, $authProvider) {
     var commonConfig = {
       popupOptions: {
         location: 'no',
@@ -73,11 +79,11 @@ angular.module('your_app_name', [
     };
 
     if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
-      commonConfig.redirectUri = 'http://localhost:8100/';
+      commonConfig.redirectUri = $config.redirectUri;
     }
     $authProvider.facebook(angular.extend({}, commonConfig, {
-      clientId: '274815989655164',
-      url: 'http://localhost:3000/api/auth/facebook'
+      clientId: $config.facebook.clientId,
+      url: $config.apiUrl + 'api/auth/facebook'
     }));
 
 
